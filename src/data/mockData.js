@@ -1,0 +1,78 @@
+export const MOCK_USERS = [
+  { id: 'admin-1', name: 'Prof. Sarah Chen', email: 'sarah.chen@university.edu', role: 'admin', avatar: 'SC' },
+  { id: 'admin-2', name: 'Prof. James Miller', email: 'james.miller@university.edu', role: 'admin', avatar: 'JM' },
+  { id: 'student-1', name: 'Alex Thompson', email: 'alex.t@student.edu', role: 'student', avatar: 'AT' },
+  { id: 'student-2', name: 'Maria Garcia', email: 'maria.g@student.edu', role: 'student', avatar: 'MG' },
+  { id: 'student-3', name: 'David Kim', email: 'david.k@student.edu', role: 'student', avatar: 'DK' },
+  { id: 'student-4', name: 'Emily Brown', email: 'emily.b@student.edu', role: 'student', avatar: 'EB' },
+  { id: 'student-5', name: 'Ryan Patel', email: 'ryan.p@student.edu', role: 'student', avatar: 'RP' },
+  { id: 'student-6', name: 'Sophie Wilson', email: 'sophie.w@student.edu', role: 'student', avatar: 'SW' },
+]
+
+export const MOCK_ASSIGNMENTS = [
+  {
+    id: 'asgn-1',
+    title: 'React Component Architecture',
+    description: 'Build a reusable component library with proper prop handling, composition patterns, and documentation.',
+    course: 'CS 301 - Web Development',
+    dueDate: '2026-04-05',
+    createdBy: 'admin-1',
+    driveLink: 'https://drive.google.com/example/react-components',
+    assignedTo: ['student-1', 'student-2', 'student-3', 'student-4', 'student-5', 'student-6'],
+    createdAt: '2026-03-10',
+  },
+  {
+    id: 'asgn-2',
+    title: 'Database Design & Normalization',
+    description: 'Design a normalized database schema for an e-commerce platform. Include ER diagrams, table definitions, and sample queries.',
+    course: 'CS 201 - Database Systems',
+    dueDate: '2026-04-12',
+    createdBy: 'admin-1',
+    driveLink: 'https://drive.google.com/example/database-design',
+    assignedTo: ['student-1', 'student-2', 'student-3', 'student-4'],
+    createdAt: '2026-03-12',
+  },
+  {
+    id: 'asgn-3',
+    title: 'REST API Implementation',
+    description: 'Implement a RESTful API with proper HTTP methods, status codes, authentication, and error handling.',
+    course: 'CS 301 - Web Development',
+    dueDate: '2026-04-18',
+    createdBy: 'admin-1',
+    driveLink: 'https://drive.google.com/example/rest-api',
+    assignedTo: ['student-1', 'student-2', 'student-3', 'student-5', 'student-6'],
+    createdAt: '2026-03-15',
+  },
+  {
+    id: 'asgn-4',
+    title: 'Machine Learning Basics',
+    description: 'Implement linear regression and classification algorithms from scratch using Python and NumPy.',
+    course: 'CS 401 - Intro to ML',
+    dueDate: '2026-04-25',
+    createdBy: 'admin-2',
+    driveLink: 'https://drive.google.com/example/ml-basics',
+    assignedTo: ['student-1', 'student-3', 'student-5'],
+    createdAt: '2026-03-18',
+  },
+  {
+    id: 'asgn-5',
+    title: 'UI/UX Case Study',
+    description: 'Analyze the UX of a popular application and propose improvements backed by design principles and user research.',
+    course: 'CS 350 - Human-Computer Interaction',
+    dueDate: '2026-03-30',
+    createdBy: 'admin-2',
+    driveLink: 'https://drive.google.com/example/ux-case-study',
+    assignedTo: ['student-2', 'student-4', 'student-6'],
+    createdAt: '2026-03-08',
+  },
+]
+
+// Initial submissions: some students have already submitted
+export const MOCK_SUBMISSIONS = [
+  { assignmentId: 'asgn-1', studentId: 'student-1', submittedAt: '2026-03-28' },
+  { assignmentId: 'asgn-1', studentId: 'student-3', submittedAt: '2026-03-29' },
+  { assignmentId: 'asgn-2', studentId: 'student-2', submittedAt: '2026-03-25' },
+  { assignmentId: 'asgn-5', studentId: 'student-4', submittedAt: '2026-03-22' },
+  { assignmentId: 'asgn-5', studentId: 'student-6', submittedAt: '2026-03-24' },
+  { assignmentId: 'asgn-4', studentId: 'student-5', submittedAt: '2026-03-23' },
+]
