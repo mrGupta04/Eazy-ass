@@ -67,7 +67,6 @@ export const MOCK_ASSIGNMENTS = [
   },
 ]
 
-// Initial submissions: some students have already submitted
 export const MOCK_SUBMISSIONS = [
   { assignmentId: 'asgn-1', studentId: 'student-1', submittedAt: '2026-03-28' },
   { assignmentId: 'asgn-1', studentId: 'student-3', submittedAt: '2026-03-29' },

@@ -21,7 +21,6 @@ export default function AdminDashboard() {
 
   const assignments = getAdminAssignments(user.id)
 
-  // Compute stats
   const totalStudents = new Set(assignments.flatMap(a => a.assignedTo)).size
   const totalSubmissions = assignments.reduce((sum, a) => sum + getAssignmentSubmissions(a.id).length, 0)
   const totalExpected = assignments.reduce((sum, a) => sum + a.assignedTo.length, 0)
@@ -37,7 +36,6 @@ export default function AdminDashboard() {
   return (
     <div>
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 2.5rem' }}>
-        {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4" style={{ marginBottom: '2.5rem' }}>
           <div>
             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary">
@@ -55,7 +53,6 @@ export default function AdminDashboard() {
           </button>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5" style={{ marginBottom: '2.5rem' }}>
           <StatCard icon={BookOpen} label="Assignments" value={assignments.length} subtitle="Created" color="primary" />
           <StatCard icon={Users} label="Students" value={totalStudents} subtitle="Enrolled" color="accent" />
@@ -63,7 +60,6 @@ export default function AdminDashboard() {
           <StatCard icon={TrendingUp} label="Completion" value={totalExpected > 0 ? `${Math.round((totalSubmissions / totalExpected) * 100)}%` : '0%'} subtitle="Overall rate" color="warning" />
         </div>
 
-        {/* Overall progress */}
         <div className="glass-card rounded-2xl glow" style={{ marginBottom: '2.5rem', padding: '1.5rem 2rem' }}>
           <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
             <TrendingUp className="w-5 h-5 text-primary-light" />
@@ -72,7 +68,6 @@ export default function AdminDashboard() {
           <ProgressBar value={totalSubmissions} max={totalExpected} size="lg" />
         </div>
 
-        {/* Assignment list */}
         <h2 className="text-base sm:text-lg font-semibold text-text-primary" style={{ marginBottom: '1.5rem' }}>Your Assignments</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {assignments.length === 0 && (
@@ -98,7 +93,6 @@ export default function AdminDashboard() {
 
             return (
               <div key={assignment.id} className="glass-card rounded-xl sm:rounded-2xl overflow-hidden transition-all">
-                {/* Assignment header */}
                 <div
                   className="cursor-pointer hover:bg-white/[0.05] transition-colors"
                   onClick={() => setExpandedId(isExpanded ? null : assignment.id)}
@@ -118,7 +112,6 @@ export default function AdminDashboard() {
                       </div>
                       <p className="text-xs text-primary-light font-medium mb-2">{assignment.course}</p>
 
-                      {/* Progress bar */}
                       <ProgressBar
                         value={submittedCount}
                         max={total}
@@ -144,10 +137,8 @@ export default function AdminDashboard() {
                   </div>
                 </div>
 
-                {/* Expanded student details */}
                 {isExpanded && (
                   <div className="border-t border-white/5" style={{ padding: '1rem 1.5rem 1.25rem' }}>
-                    {/* Drive link */}
                     {assignment.driveLink && (
                       <div className="flex items-center gap-2 py-3 border-b border-white/5 min-w-0 overflow-hidden">
                         <Link2 className="w-4 h-4 text-accent" />
@@ -201,7 +192,6 @@ export default function AdminDashboard() {
                       })}
                     </div>
 
-                    {/* Per-assignment progress summary */}
                     <div className="mt-4 p-3 rounded-xl bg-white/[0.02] border border-white/5">
                       <div className="flex items-center justify-between text-xs text-text-secondary mb-2">
                         <span>{submittedCount} of {total} students submitted</span>
@@ -225,13 +215,11 @@ export default function AdminDashboard() {
         </div>
       </div>
 
-      {/* Create Assignment Modal */}
       <CreateAssignmentModal
         isOpen={showCreate}
         onClose={() => setShowCreate(false)}
       />
 
-      {/* Delete Confirmation */}
       <ConfirmModal
         isOpen={!!deleteTarget}
         title="Delete Assignment"

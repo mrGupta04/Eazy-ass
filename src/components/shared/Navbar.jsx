@@ -14,7 +14,6 @@ export default function Navbar() {
     <nav className="glass sticky top-0 z-50 border-b border-white/10 shadow-lg shadow-black/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14 sm:h-16">
-          {/* Logo */}
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
               <BookOpen className="w-5 h-5 text-white" />
@@ -27,7 +26,6 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Desktop user info */}
           <div className="hidden md:flex items-center gap-4">
             <button
               onClick={resetData}
@@ -58,7 +56,6 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Mobile menu button */}
           <button
             className="md:hidden p-2 rounded-lg text-text-secondary hover:text-text-primary"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -67,7 +64,6 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile dropdown */}
         {mobileOpen && (
           <div className="md:hidden pb-4 border-t border-white/10 mt-2 pt-4 space-y-3">
             <div className="flex items-center gap-3 px-2">

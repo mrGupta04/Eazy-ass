@@ -23,7 +23,7 @@ export default function StudentDashboard() {
   const { user } = useAuth()
   const { getStudentAssignments, isSubmitted, submitAssignment } = useData()
 
-  const [confirmStep, setConfirmStep] = useState(null) // { assignmentId, step: 1 | 2 }
+  const [confirmStep, setConfirmStep] = useState(null)
 
   const assignments = getStudentAssignments(user.id)
   const submitted = assignments.filter(a => isSubmitted(a.id, user.id))
@@ -50,7 +50,6 @@ export default function StudentDashboard() {
   return (
     <div>
       <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '2rem 2.5rem' }}>
-        {/* Header */}
         <div style={{ marginBottom: '2.5rem' }}>
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-text-primary">
             Welcome back, <span className="gradient-text">{user.name.split(' ')[0]}</span>
@@ -58,7 +57,6 @@ export default function StudentDashboard() {
           <p className="text-text-secondary mt-1 text-xs sm:text-sm">Here's your assignment overview</p>
         </div>
 
-        {/* Stats */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5" style={{ marginBottom: '2.5rem' }}>
           <StatCard icon={BookOpen} label="Total" value={assignments.length} subtitle="Assignments" color="primary" />
           <StatCard icon={CheckCircle2} label="Submitted" value={submitted.length} subtitle="Completed" color="success" />
@@ -66,7 +64,6 @@ export default function StudentDashboard() {
           <StatCard icon={AlertCircle} label="Overdue" value={overdue.length} subtitle="Past due" color="danger" />
         </div>
 
-        {/* Overall progress */}
         <div className="glass-card rounded-2xl glow" style={{ marginBottom: '2.5rem', padding: '1.5rem 2rem' }}>
           <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
             <TrendingUp className="w-5 h-5 text-primary-light" />
@@ -75,7 +72,6 @@ export default function StudentDashboard() {
           <ProgressBar value={submitted.length} max={assignments.length} size="lg" />
         </div>
 
-        {/* Assignment list */}
         <h2 className="text-base sm:text-lg font-semibold text-text-primary" style={{ marginBottom: '1.5rem' }}>Your Assignments</h2>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
           {assignments.length === 0 && (
@@ -97,7 +93,6 @@ export default function StudentDashboard() {
                 style={{ padding: '1.25rem 1.5rem' }}
               >
                 <div className="flex flex-col sm:flex-row sm:items-start gap-3 sm:gap-4">
-                  {/* Status indicator */}
                   <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
                     done ? 'bg-success/20' : 'bg-white/5'
                   }`}>
@@ -107,7 +102,6 @@ export default function StudentDashboard() {
                     }
                   </div>
 
-                  {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mb-1">
                       <h3 className="text-base font-semibold text-text-primary truncate">{assignment.title}</h3>
@@ -119,7 +113,6 @@ export default function StudentDashboard() {
                     <p className="text-xs text-primary-light font-medium mb-1">{assignment.course}</p>
                     <p className="text-sm text-text-secondary line-clamp-2">{assignment.description}</p>
 
-                    {/* Actions row */}
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3 mt-3 sm:mt-4">
                       {assignment.driveLink && (
                         <a
@@ -156,7 +149,6 @@ export default function StudentDashboard() {
         </div>
       </div>
 
-      {/* Double-verification modal — Step 1 */}
       <ConfirmModal
         isOpen={confirmStep?.step === 1}
         title="Confirm Submission"
@@ -166,7 +158,6 @@ export default function StudentDashboard() {
         onCancel={() => setConfirmStep(null)}
       />
 
-      {/* Double-verification modal — Step 2 (Final) */}
       <ConfirmModal
         isOpen={confirmStep?.step === 2}
         title="Final Confirmation"

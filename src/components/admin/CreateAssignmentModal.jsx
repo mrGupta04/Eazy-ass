@@ -36,7 +36,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
       ...form,
       createdBy: user.id,
     })
-    // Reset form
     setForm({
       title: '',
       description: '',
@@ -72,7 +71,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
 
       <div className="relative glass rounded-xl sm:rounded-2xl w-full max-w-2xl max-h-[85vh] sm:max-h-[90vh] overflow-y-auto shadow-2xl border border-white/10 animate-fade-in-up">
-        {/* Header */}
         <div className="sticky top-0 glass rounded-t-2xl border-b border-white/10 flex items-center justify-between z-10" style={{ padding: '1rem 2rem' }}>
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
@@ -88,9 +86,7 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
           </button>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} style={{ padding: '2rem 2.5rem', display: 'flex', flexDirection: 'column', gap: '1.75rem' }}>
-          {/* Title */}
           <div>
             <label className="block text-sm font-medium text-text-primary" style={{ marginBottom: '0.5rem' }}>Assignment Title *</label>
             <input
@@ -105,7 +101,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
             {errors.title && <p className="text-xs text-danger mt-1">{errors.title}</p>}
           </div>
 
-          {/* Course */}
           <div>
             <label className="block text-sm font-medium text-text-primary" style={{ marginBottom: '0.5rem' }}>Course *</label>
             <input
@@ -120,7 +115,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
             {errors.course && <p className="text-xs text-danger mt-1">{errors.course}</p>}
           </div>
 
-          {/* Description */}
           <div>
             <label className="block text-sm font-medium text-text-primary" style={{ marginBottom: '0.5rem' }}>Description</label>
             <textarea
@@ -132,7 +126,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
             />
           </div>
 
-          {/* Due Date & Drive Link */}
           <div className="grid grid-cols-1 sm:grid-cols-2" style={{ gap: '1.25rem' }}>
             <div>
               <label className="block text-sm font-medium text-text-primary" style={{ marginBottom: '0.5rem' }}>Due Date *</label>
@@ -158,7 +151,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
             </div>
           </div>
 
-          {/* Assign Students */}
           <div>
             <div className="flex items-center justify-between mb-2">
               <label className="text-sm font-medium text-text-primary">Assign Students *</label>
@@ -210,7 +202,6 @@ export default function CreateAssignmentModal({ isOpen, onClose }) {
             </p>
           </div>
 
-          {/* Actions */}
           <div className="flex flex-col-reverse sm:flex-row sm:justify-end" style={{ gap: '0.75rem', paddingTop: '1rem' }}>
             <button
               type="button"

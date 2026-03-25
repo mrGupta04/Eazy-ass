@@ -5,10 +5,8 @@ export default function ConfirmModal({ isOpen, title, message, onConfirm, onCanc
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-      {/* Backdrop */}
       <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={onCancel} />
 
-      {/* Modal */}
       <div className="relative glass rounded-2xl max-w-md w-full shadow-2xl border border-white/10 animate-in fade-in zoom-in duration-200" style={{ padding: '2rem 2.5rem', margin: '1rem' }}>
         <button
           onClick={onCancel}

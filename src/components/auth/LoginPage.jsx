@@ -12,13 +12,11 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen gradient-bg flex items-center justify-center p-4 relative overflow-hidden">
-      {/* Background decorations */}
       <div className="absolute top-20 left-10 w-40 sm:w-72 h-40 sm:h-72 bg-primary/10 rounded-full blur-[100px]" />
       <div className="absolute bottom-20 right-10 w-48 sm:w-72 md:w-96 h-48 sm:h-72 md:h-96 bg-accent/10 rounded-full blur-[120px]" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 sm:w-[400px] md:w-[600px] h-72 sm:h-[400px] md:h-[600px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="relative z-10 w-full max-w-lg">
-        {/* Logo section */}
         <div className="text-center mb-8 sm:mb-10">
           <div className="inline-flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-gradient-to-br from-primary to-accent mb-4 glow">
             <BookOpen className="w-7 h-7 sm:w-8 sm:h-8 text-white" />
@@ -29,7 +27,6 @@ export default function LoginPage() {
           <p className="text-text-secondary mt-2 text-sm">Student Assignment Management System</p>
         </div>
 
-        {/* Role selection */}
         {!selectedRole && (
           <div>
             <p className="text-center text-text-secondary text-sm mb-8 sm:mb-10">Select your role to continue</p>
@@ -67,7 +64,6 @@ export default function LoginPage() {
           </div>
         )}
 
-        {/* User selection */}
         {selectedRole && (
           <div>
             <button
